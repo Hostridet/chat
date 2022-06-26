@@ -1,9 +1,10 @@
 <?php
 $messages = json_decode(file_get_contents('../src/base.json'), true);
 $user = [
-    "host" => "321",
     "lenya" => "poc",
-    "Elisey" => "derevnya"
+    "Elisey" => "derevnya",
+    "Sasha" => "devops",
+    "Lesha" => "dadinside"
 ];
 $isAuthorized = false;
 
@@ -28,7 +29,7 @@ if (isset($_POST['message'])) {
     $messages [] = [
         "login" => $_GET["login"],
         "data" => date("дата: d.m.Y, время: H:i:s"),
-        "message" => $_POST['message']
+        "message" => htmlspecialchars($_POST['message'], ENT_QUOTES)
     ];
     file_put_contents('../src/base.json', json_encode($messages));
 }
@@ -72,7 +73,7 @@ if (isset($_POST['message'])) {
     {
         echo '
         <form method="post">
-        <div class="send_message">
+        <div class="send_message"> 
             <input class="form-control" type="text" name="message" placeholder="Your message">
             <input class="btn btn-info" type="submit" value="Send">
         </div>
