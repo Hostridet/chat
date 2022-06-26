@@ -70,7 +70,7 @@
     width: 100%;
     border-top: 9px double #E0FFFF;
     background: linear-gradient(90deg,#40E0D0,#7FFFD4);
-    top: 88%;
+    bottom: 0px;
     padding: 5px;
 }
 .send_message input
