@@ -28,7 +28,6 @@ date_default_timezone_set('Asia/Vladivostok');
 if (isset($_POST['message'])) {
     $messages [] = [
         "login" => $_GET["login"],
-        "data" => date("дата: d.m.Y, время: H:i:s"),
         "message" => htmlspecialchars($_POST['message'], ENT_QUOTES)
     ];
     file_put_contents('../src/base.json', json_encode($messages));
